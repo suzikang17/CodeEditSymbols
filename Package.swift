@@ -1,4 +1,4 @@
-// swift-tools-version: 5.5
+// swift-tools-version: 5.9
 
 import PackageDescription
 
@@ -8,7 +8,6 @@ let package = Package(
         .macOS(.v12),
     ],
     products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "CodeEditSymbols",
             targets: ["CodeEditSymbols"]),
@@ -23,7 +22,10 @@ let package = Package(
     targets: [
         .target(
             name: "CodeEditSymbols",
-            dependencies: []
+            dependencies: [],
+            resources: [
+                .process("Symbols.xcassets")
+            ]
         ),
         .testTarget(
             name: "CodeEditSymbolsTests",
